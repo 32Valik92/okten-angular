@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IUser} from "../../interfaces";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -10,10 +11,13 @@ export class UserComponent {
   @Input()
   user: IUser
 
-  @Output()
-  liftUser = new EventEmitter<IUser>()
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
-  getDetails() {
-    this.liftUser.emit(this.user)
+  getDetails(): void {
+    this.router.navigate([this.user.id], {
+      relativeTo: this.activatedRoute,
+      state: this.user
+    })
   }
 }
