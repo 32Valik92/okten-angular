@@ -12,6 +12,10 @@ import {HeaderComponent} from './components/header/header.component';
 import {UsersPageComponent} from './pages/users-page/users-page.component';
 import {UserDetailPageComponent} from './pages/user-detail-page/user-detail-page.component';
 import {PostsPageComponent} from './pages/posts-page/posts-page.component';
+import {PostsDetailPageComponent} from './pages/posts-detail-page/posts-detail-page.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostComponent } from './components/post/post.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 const routes: Routes = [
   {
@@ -27,7 +31,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'posts', component: PostsPageComponent
+        path: 'posts', component: PostsPageComponent, children: [
+          {
+            path: ':id', component: PostsDetailPageComponent
+          }
+        ]
       }
     ]
   }
@@ -44,7 +52,11 @@ const routes: Routes = [
     HeaderComponent,
     UsersPageComponent,
     UserDetailPageComponent,
-    PostsPageComponent
+    PostsPageComponent,
+    PostsDetailPageComponent,
+    PostsComponent,
+    PostComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
