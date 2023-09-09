@@ -9,11 +9,9 @@ import {IUser} from "../../interfaces";
 export class UserComponent {
   @Input()
   user: IUser
-
   @Output()
   liftUser = new EventEmitter<IUser>()
-
-  getDetails() {
+  getDetails(): void {
     this.liftUser.emit(this.user)
   }
 }

@@ -8,5 +8,5 @@ import {IUser} from "../../interfaces";
 })
 export class UserDetailsComponent {
   @Input()
-  user:IUser
+  user: IUser
 }
