@@ -1,9 +1,16 @@
+<!-- замість .map() як в react ми можемо промапати за допомогою деректив -->
 <div>
+  <!-- *ngIf це деректива, яка говорить, що блок відмалюється, якщо... В нашому випадку, якщо є user-->
   <div *ngIf="user">
     <app-user-details [user]="user"></app-user-details>
     <hr>
   </div>
   <div>
+    <!-- одна з деректив - це *ngFor. По типу for of. users береться з users.components із тих змінних на початку -->
+    <!-- [user]="user" це ми передаємо пропсу як в react. І в user.component відхопимо -->
+
+    <!-- ми в user компоненті зробили подію яка буде з рівня user віддавати в компоненту userS нашого користувача-->
+    <!-- Далі getUser($event), який відпрацьовує в userS бере нашого user  -->
     <app-user *ngFor="let user of users" [user]="user" (liftUser)="getUser($event)"></app-user>
   </div>
 </div>
