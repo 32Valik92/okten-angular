@@ -13,6 +13,7 @@ import {UsersPageComponent} from './pages/users-page/users-page.component';
 import {UserDetailPageComponent} from './pages/user-detail-page/user-detail-page.component';
 import {PostsPageComponent} from './pages/posts-page/posts-page.component';
 
+// Наше дерево routing
 const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
@@ -49,7 +50,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes) // Модуль для routing
   ],
   providers: [],
   bootstrap: [AppComponent]
